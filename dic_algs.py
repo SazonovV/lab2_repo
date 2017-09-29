@@ -1,9 +1,23 @@
-ivan = {"name" : "ivan","age":34,"children":[{"name" : "vasja","age":16}] }
-shashya = {"name" : "shashya","age":50,"children":[{"name" : "ivan","age":20}] }
-michael = {"name" : "michael","age":60,"children":[{"name" : "vasja","age":31}] }
-emp = [ivan,shashya,michael]
-for x in emp:
-    for i in x["children"]:
-        if i["age"] >18:
-            print(x["name"])
 
+ivan = {"name" : "ivan" , "age" : 34 ,
+        "children" : [{"name" : "vasja" , "age" : 12} ,
+                      {"name" : "petja" , "age" : 10}]}
+
+darja = {"name" : "darja" , "age" : 41,
+         "children" : [{"name" : "kirill" , "age" : 21 } ,
+                       { "name" : "pavel" , "age" : 15}]}
+
+
+emps = [ivan , darja]
+
+def findch(list):
+    flist = []
+    for i in emps:
+        for j in i['children']:
+            if j['age'] > 18:
+                flist.append(i)
+                break
+    return flist
+
+
+print(*findch(emps))
